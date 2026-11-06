@@ -1,67 +1,58 @@
 # chase.exe
 
-**Human detected. Personal space not found.**
+**A camera bogey built from a printer that gave up on printing.**
 
-A camera bogey made from an old inkjet printer. It moves a phone along the printer's rail, with the eventual goal of tracking people automatically.
+`chase.exe` is a motorized camera bogey made by repurposing the linear rail and motor from an old inkjet printer. Instead of moving a printhead across paper, it moves a phone along a rail.
 
-The printer used to move a printhead around. Now it moves a camera around. We think that's a reasonable career change.
+The goal was pretty simple: take something that would probably end up as e-waste and turn it into something useful (and hopefully a little cooler than a printer).
 
-## What is this?
+## What went into it?
 
-`chase.exe` is a motorized camera slider built by taking apart an old inkjet printer and reusing its linear rail and motor.
-
-The idea is to make a camera that can follow a person instead of just sitting in one place. We're using an ESP32 to control the motor, and a laptop for the computer vision part.
-
-## Built with
-
+- Linear rail and carriage from an inkjet printer
+- Original printer DC motor
 - ESP32
 - L298N motor driver
-- Linear rail and DC motor salvaged from an inkjet printer
-- Smartphone camera
-- Python and OpenCV
-- YOLO for person detection
-- Wi-Fi communication
+- Smartphone as the camera
+- Laptop for control and experimentation
 
 ## How it works
 
-1. The phone streams video to a laptop.
-2. The laptop processes the video and detects people.
-3. The detection is used to decide which direction the camera should move.
-4. The ESP32 controls the motor through the L298N.
-5. The camera moves along the printer rail.
+The printer's original rail and motor handle the movement. An ESP32 controls the motor through an L298N driver, allowing the camera to move along the rail.
 
-Basically, a printer has been repurposed to chase humans.
+The phone sits on the carriage and acts as the camera.
 
-## Why?
+What used to move ink around now moves a camera around. That's pretty much the entire idea.
 
-Because throwing away an entire printer just because it ran out of ink felt like a waste.
+## Why a printer?
 
-We wanted to see how much of an ordinary printer could be reused for something completely different. Turns out, the rail and motor make a pretty decent starting point for a camera slider.
+Printers have some surprisingly useful parts inside them. The linear rail was already designed for controlled movement, so instead of building a mechanism from scratch, we decided to reuse it.
+
+A bit of dismantling, wiring, and experimenting later, we had a working camera bogey.
 
 ## Current status
 
-- [x] Salvaged printer rail and motor
-- [x] Motorized camera movement
+- [x] Printer rail and carriage repurposed
+- [x] Original motor reused
 - [x] ESP32 motor control
-- [ ] Person detection
-- [ ] Automatic human tracking
-- [ ] Smoother movement and better tracking
+- [x] Camera movement along the rail
+- [ ] Further movement and control improvements
 
-Some features are still being worked on. This is a hackathon project, not a finished product.
+## Ideas for later
 
-## Future plans
+- Automated camera movement
+- Computer vision-based tracking
+- Better speed control
+- Smoother movement
 
-- Make tracking less jittery
-- Add limits so the camera doesn't drive itself off the rail
-- Improve movement speed and accuracy
-- Make the camera follow people more reliably
+These are ideas for future improvements, not features the current build necessarily has.
 
 ## The name
 
 `chase.exe`
 
-We thought it was funny. The printer disagrees.
+The camera might chase something eventually. For now, it's just chasing its own potential.
 
 ---
 
-Built during a hackathon using parts that probably weren't supposed to do this.
+Made during a hackathon.  
+One less printer in the landfill. One more questionable use of an ESP32.
