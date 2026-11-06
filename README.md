@@ -1,90 +1,67 @@
-# chase.exe 🏃📸
-### `Human detected. Personal space not found.`
+# chase.exe
 
-A human-tracking camera bogey built during a 12-hour hackathon using salvaged inkjet printer components, an ESP32, and a questionable amount of ambition.
+**Human detected. Personal space not found.**
 
-Why hire a cameraman when you can run an executable?
+A camera bogey made from an old inkjet printer. It moves a phone along the printer's rail, with the eventual goal of tracking people automatically.
 
----
+The printer used to move a printhead around. Now it moves a camera around. We think that's a reasonable career change.
 
-## 💀 What is chase.exe?
+## What is this?
 
-**chase.exe** is a motorized camera slider designed to detect and follow human movement.
+`chase.exe` is a motorized camera slider built by taking apart an old inkjet printer and reusing its linear rail and motor.
 
-We took the linear rail and DC motor from an old inkjet printer, attached a smartphone, and turned a printer carriage into a camera bogey.
+The idea is to make a camera that can follow a person instead of just sitting in one place. We're using an ESP32 to control the motor, and a laptop for the computer vision part.
 
-The goal? Build an affordable, intelligent camera system that automatically follows a person along a linear track.
+## Built with
 
-What used to chase ink across paper now chases people.
-
----
-
-## ⚙️ Hardware
-
-| Component | Purpose |
-|---|---|
-| ESP32 | Embedded control |
-| L298N | DC motor driver |
-| Inkjet printer linear rail | Camera movement |
-| Original printer DC motor | Bogey propulsion |
-| Smartphone | Camera feed |
-| Laptop | Computer vision processing |
-
-## 🧠 Tech Stack
-
-- Python
-- OpenCV
-- YOLO for human detection
 - ESP32
+- L298N motor driver
+- Linear rail and DC motor salvaged from an inkjet printer
+- Smartphone camera
+- Python and OpenCV
+- YOLO for person detection
 - Wi-Fi communication
 
-## 🔄 How it works
+## How it works
 
-1. A smartphone mounted on the bogey captures video.
-2. The video feed is streamed to a laptop.
-3. Computer vision detects humans in the frame.
-4. The person's position is calculated relative to the frame center.
-5. Movement commands are sent to the ESP32.
-6. The ESP32 controls the DC motor through the L298N.
-7. The camera moves along the rail to follow the detected subject.
+1. The phone streams video to a laptop.
+2. The laptop processes the video and detects people.
+3. The detection is used to decide which direction the camera should move.
+4. The ESP32 controls the motor through the L298N.
+5. The camera moves along the printer rail.
 
-## ♻️ E-Waste? More like Free Hardware.
+Basically, a printer has been repurposed to chase humans.
 
-Instead of buying a dedicated camera slider, we repurposed components from an inkjet printer:
+## Why?
 
-- Linear rail
-- Carriage
-- DC motor
+Because throwing away an entire printer just because it ran out of ink felt like a waste.
 
-**Printer:** 0  
-**Cameraman:** 0  
-**chase.exe:** Running...
+We wanted to see how much of an ordinary printer could be reused for something completely different. Turns out, the rail and motor make a pretty decent starting point for a camera slider.
 
-## 🚧 Project Status
+## Current status
 
-- [x] Salvaged printer rail and carriage
-- [x] Camera bogey assembly
-- [x] DC motor integration
+- [x] Salvaged printer rail and motor
+- [x] Motorized camera movement
 - [x] ESP32 motor control
-- [ ] Live human detection
-- [ ] Autonomous tracking
-- [ ] Smooth motion control
+- [ ] Person detection
+- [ ] Automatic human tracking
+- [ ] Smoother movement and better tracking
 
-## 🔮 Future Plans
+Some features are still being worked on. This is a hackathon project, not a finished product.
 
-- Real-time human tracking
-- Smooth acceleration and deceleration
-- Wireless control interface
-- Autonomous cinematic camera movement
-- Obstacle detection
-- Multiple tracking modes
+## Future plans
 
-## 👨‍💻 Built During
+- Make tracking less jittery
+- Add limits so the camera doesn't drive itself off the rail
+- Improve movement speed and accuracy
+- Make the camera follow people more reliably
 
-A 12-hour hackathon.
+## The name
 
-Built with recycled hardware, caffeine, and the inability to leave a printer alone.
+`chase.exe`
 
-## 📜 License
+We thought it was funny. The printer disagrees.
 
-MIT License
+---
+
+Built during a hackathon using parts that probably weren't supposed to do this.
